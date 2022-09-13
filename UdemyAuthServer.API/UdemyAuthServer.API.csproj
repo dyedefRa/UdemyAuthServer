@@ -8,5 +8,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj" />
+    <ProjectReference Include="..\UdemyAuthServer.Service\UdemyAuthServer.Service.csproj" />
+  </ItemGroup>
+
 
 </Project>

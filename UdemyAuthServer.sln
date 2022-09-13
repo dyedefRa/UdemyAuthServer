@@ -7,6 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyAuthServer.API", "Udem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyAuthServer.Core", "UdemyAuthServer.Core\UdemyAuthServer.Core.csproj", "{6365F43C-B758-41F4-ACBE-D96A26E1689F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApp1.API", "MiniApp1.API\MiniApp1.API.csproj", "{A19E8580-3027-4F88-BDD1-8972F558AF05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApp2.API", "MiniApp2.API\MiniApp2.API.csproj", "{7FC2B30E-FFC2-4155-864D-506DA911EB6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApp3.API", "MiniApp3.API\MiniApp3.API.csproj", "{F6A40E6D-C621-46E6-8E28-E7A66BA101A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyAuthServer.Data", "UdemyAuthServer.Data\UdemyAuthServer.Data.csproj", "{26869F43-EE56-443B-92EF-51D9BBD904C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyAuthServer.Service", "UdemyAuthServer.Service\UdemyAuthServer.Service.csproj", "{C71FB051-E3A8-455D-BDDD-6970FAE0AE59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{40433A77-878D-4653-A941-B51517BE9296}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +33,30 @@ Global
 		{6365F43C-B758-41F4-ACBE-D96A26E1689F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6365F43C-B758-41F4-ACBE-D96A26E1689F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6365F43C-B758-41F4-ACBE-D96A26E1689F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19E8580-3027-4F88-BDD1-8972F558AF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19E8580-3027-4F88-BDD1-8972F558AF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19E8580-3027-4F88-BDD1-8972F558AF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19E8580-3027-4F88-BDD1-8972F558AF05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC2B30E-FFC2-4155-864D-506DA911EB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC2B30E-FFC2-4155-864D-506DA911EB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC2B30E-FFC2-4155-864D-506DA911EB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC2B30E-FFC2-4155-864D-506DA911EB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A40E6D-C621-46E6-8E28-E7A66BA101A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A40E6D-C621-46E6-8E28-E7A66BA101A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A40E6D-C621-46E6-8E28-E7A66BA101A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A40E6D-C621-46E6-8E28-E7A66BA101A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26869F43-EE56-443B-92EF-51D9BBD904C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26869F43-EE56-443B-92EF-51D9BBD904C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26869F43-EE56-443B-92EF-51D9BBD904C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26869F43-EE56-443B-92EF-51D9BBD904C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C71FB051-E3A8-455D-BDDD-6970FAE0AE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71FB051-E3A8-455D-BDDD-6970FAE0AE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71FB051-E3A8-455D-BDDD-6970FAE0AE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71FB051-E3A8-455D-BDDD-6970FAE0AE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40433A77-878D-4653-A941-B51517BE9296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40433A77-878D-4653-A941-B51517BE9296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40433A77-878D-4653-A941-B51517BE9296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40433A77-878D-4653-A941-B51517BE9296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
