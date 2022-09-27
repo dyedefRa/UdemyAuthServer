@@ -8,28 +8,28 @@ using UdemyAuthServer.Core.Repositories;
 
 namespace UdemyAuthServer.Data.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<Tentity> : IGenericRepository<Tentity> where Tentity : class
     {
         private readonly DbContext _context;
-        private readonly DbSet<T> _dbSet;
+        private readonly DbSet<Tentity> _dbSet;
 
         public GenericRepository(AppDbContext context)
         {
             _context = context;
-            _dbSet = _context.Set<T>();
+            _dbSet = _context.Set<Tentity>();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(Tentity entity)
         {
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<Tentity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<Tentity> GetByIdAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
             if (entity != null)
@@ -39,18 +39,18 @@ namespace UdemyAuthServer.Data.Repositories
             return entity;
         }
 
-        public void Remove(T entity)
+        public void Remove(Tentity entity)
         {
             _dbSet.Remove(entity);
         }
 
-        public T Update(T entity)
+        public Tentity Update(Tentity entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
             return entity;
         }
 
-        public IQueryable<T> Where(Expression<Func<T, bool>> predicate)
+        public IQueryable<Tentity> Where(Expression<Func<Tentity, bool>> predicate)
         {
             return _dbSet.Where(predicate);
         }
