@@ -41,4 +41,7 @@ Appsettingten OptionPattern ile class a veri çekmek
          _tokenOption=tokenOption.Value;
          }
         ( TokenService dan bak)
- -------------------------------------------------
+
+ -----------------------TOKEN ASIL METHOD--------------------------
+
+ UdemyAuthServer > Services  > TokenService

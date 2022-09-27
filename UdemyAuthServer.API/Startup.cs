@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyAuthServer.Core.Configurations;
 
 namespace UdemyAuthServer.API
 {
@@ -28,6 +29,8 @@ namespace UdemyAuthServer.API
         {
 
             services.Configure<CustomTokenOption>(Configuration.GetSection("TokenOption"));
+            services.Configure<List<Client>>(Configuration.GetSection("Clients"));
+
             services.AddControllers();
 
 
