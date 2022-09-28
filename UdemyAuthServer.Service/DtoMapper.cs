@@ -4,7 +4,7 @@ using UdemyAuthServer.Core.Models;
 
 namespace UdemyAuthServer.Service
 {
-    class DtoMapper : Profile
+    public class DtoMapper : Profile
     {
         public DtoMapper()
         {
