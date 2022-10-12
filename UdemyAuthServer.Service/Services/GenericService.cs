@@ -75,7 +75,7 @@ namespace UdemyAuthServer.Service.Services
             {
                 return Response<NoDataDto>.Fail("Id not found", 404, true);
             }
-            var updateEntity = ObjectMapper.Mapper.Map<TEntity>(entity);
+            var updateEntity = ObjectMapper.Mapper.Map<TEntity>(dto);
             _genericRepository.Update(updateEntity);
 
             await _unitOfWork.CommitAsync();

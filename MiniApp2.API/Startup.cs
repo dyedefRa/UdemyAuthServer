@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SharedLibrary.Configuration;
+using SharedLibrary.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +27,21 @@ namespace MiniApp2.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //-------------------------------
+            //1)appsetting > TokenOption deki classý CustomTokenOption olarak tanýttýk
+            services.Configure<CustomTokenOption>(Configuration.GetSection("TokenOption"));
+            //2)Buradada nesnenin örneðini aldýk.
+            var tokenOptions = Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
+            //-------------------------------
+
+            services.AddCustomTokenAuth(tokenOptions); //Extension yazdýk >  SharedLibrary.Extensions>CustomTokenAuth
+
+
             services.AddControllers();
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc(name: "v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +55,7 @@ namespace MiniApp2.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -7,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SharedLibrary.Configuration;
-using System;
 using System.Collections.Generic;
 using UdemyAuthServer.Core.Configurations;
 using UdemyAuthServer.Core.Models;
@@ -18,6 +16,7 @@ using UdemyAuthServer.Data;
 using UdemyAuthServer.Data.Repositories;
 using UdemyAuthServer.Data.UnitOfWork;
 using UdemyAuthServer.Service.Services;
+using SharedLibrary.Extensions;
 
 namespace UdemyAuthServer.API
 {
@@ -67,30 +66,33 @@ namespace UdemyAuthServer.API
             //-------------------------------
 
             services.Configure<List<Client>>(Configuration.GetSection("Clients"));
-            services.AddControllers();
 
-            services.AddAuthentication(options =>
-            {
-                //Scheme |  farklý login kýsmýn olabýlýr
-                //kullanýcý olarak gir bayi olarak gir vs gibi.
-                //Üyelik sistemi = Schema.                
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtOptions =>
-                 {
-                     jwtOptions.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
-                     {
-                         ValidIssuer = tokenOptions.Issuer,
-                         ValidAudience = tokenOptions.Audience[0],
-                         IssuerSigningKey = SignService.GetSymmetricSecurityKey(tokenOptions.SecurityKey),
-                         //Kontrol etsin mi
-                         ValidateIssuerSigningKey = true, //Ýmzasýný doðrulamak zorunda
-                         ValidateAudience = true,
-                         ValidateIssuer = true,
-                         ValidateLifetime = true,
-                         ClockSkew = TimeSpan.Zero
-                     };
-                 });
+            services.AddCustomTokenAuth(tokenOptions); //Extension yazdýk >  SharedLibrary.Extensions>CustomTokenAuth
+
+            //services.AddAuthentication(options =>
+            //{
+            //    //Scheme |  farklý login kýsmýn olabýlýr
+            //    //kullanýcý olarak gir bayi olarak gir vs gibi.
+            //    //Üyelik sistemi = Schema.                
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtOptions =>
+            //     {
+            //         jwtOptions.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+            //         {
+            //             ValidIssuer = tokenOptions.Issuer,
+            //             ValidAudience = tokenOptions.Audience[0],
+            //             IssuerSigningKey = SignService.GetSymmetricSecurityKey(tokenOptions.SecurityKey),
+            //             //Kontrol etsin mi
+            //             ValidateIssuerSigningKey = true, //Ýmzasýný doðrulamak zorunda
+            //             ValidateAudience = true,
+            //             ValidateIssuer = true,
+            //             ValidateLifetime = true,
+            //             ClockSkew = TimeSpan.Zero
+            //         };
+            //     });
+
+            services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
